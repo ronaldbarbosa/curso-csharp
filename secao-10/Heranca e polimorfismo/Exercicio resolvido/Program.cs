@@ -1,4 +1,5 @@
-﻿using Exercicio_resolvido.Entities;
+﻿using System.Globalization;
+using Exercicio_resolvido.Entities;
 
 namespace Exercicio_resolvido
 {
@@ -23,12 +24,12 @@ namespace Exercicio_resolvido
                 Console.Write("Hours: ");
                 int hours = int.Parse(Console.ReadLine());
                 Console.Write("Value per hour: ");
-                double valuePerHour = double.Parse(Console.ReadLine());
+                double valuePerHour = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
                 if (outsourced == 'y' || outsourced == 'Y')
                 {
                     Console.Write("Additional charge: ");
-                    double additionalCharge = double.Parse(Console.ReadLine());
+                    double additionalCharge = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
                     Employee employee = new OutsourcedEmployee(name, hours, valuePerHour, additionalCharge);
                     employees.Add(employee);
                 }

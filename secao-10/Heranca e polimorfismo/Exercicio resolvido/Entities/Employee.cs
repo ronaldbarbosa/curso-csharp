@@ -1,3 +1,5 @@
+using System.Globalization;
+
 namespace Exercicio_resolvido.Entities
 {
     public class Employee
@@ -20,7 +22,7 @@ namespace Exercicio_resolvido.Entities
 
         public override string ToString()
         {
-            return $"{Name} - $ {Payment().ToString("F2")}";
+            return $"{Name} - $ {Payment().ToString("F2", CultureInfo.InvariantCulture)}";
         }
     }
 }
