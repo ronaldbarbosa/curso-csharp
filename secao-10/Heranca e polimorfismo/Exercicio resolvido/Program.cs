@@ -30,13 +30,11 @@ namespace Exercicio_resolvido
                 {
                     Console.Write("Additional charge: ");
                     double additionalCharge = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-                    Employee employee = new OutsourcedEmployee(name, hours, valuePerHour, additionalCharge);
-                    employees.Add(employee);
+                    employees.Add(new OutsourcedEmployee(name, hours, valuePerHour, additionalCharge));
                 }
                 else
                 {
-                    Employee employee = new Employee(name, hours, valuePerHour);
-                    employees.Add(employee);
+                    employees.Add(new Employee(name, hours, valuePerHour));
                 }
             }
             Console.WriteLine();
