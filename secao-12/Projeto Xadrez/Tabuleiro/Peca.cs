@@ -1,4 +1,4 @@
-namespace Projeto_Xadrez.Tabuleiro
+namespace Projeto_Xadrez
 {
     public class Peca
     {
