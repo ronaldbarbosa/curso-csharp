@@ -16,5 +16,11 @@ namespace Projeto_Xadrez
         public Peca Peca(int linha, int coluna) {
             return Pecas[linha, coluna];
         }
+
+        public void InserirPeca(Peca peca, Posicao posicao)
+        {
+            Pecas[posicao.Linha, posicao.Coluna] = peca; 
+            peca.Posicao = posicao;
+        }
     }
 }
