@@ -1,3 +1,5 @@
+using Xadrez;
+
 namespace Projeto_Xadrez
 {
     public class Tela
@@ -37,6 +39,14 @@ namespace Projeto_Xadrez
                 Console.Write(peca);
                 Console.ForegroundColor = aux;
             }
+        }
+
+        public static PosicaoXadrez LerPosicaoXadrez()
+        {
+            string posicao = Console.ReadLine();
+            char coluna = posicao[0];
+            int linha = int.Parse(posicao[1] + "");
+            return new PosicaoXadrez(coluna, linha);
         }
     }
 }
