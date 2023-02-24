@@ -1,9 +1,11 @@
-namespace Projeto_Xadrez
+﻿using System;
+
+namespace tabuleiro 
 {
-    public class TabuleiroException : Exception
+    class TabuleiroException : Exception 
     {
-        public TabuleiroException(string mensagem) : base(mensagem)
-        {
-        }
+
+        public TabuleiroException(string mensagem) : base(mensagem) 
+        {}
     }
 }

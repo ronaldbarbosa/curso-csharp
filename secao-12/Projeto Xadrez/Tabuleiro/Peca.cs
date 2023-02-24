@@ -1,23 +1,26 @@
-namespace Projeto_Xadrez
+﻿namespace tabuleiro 
 {
-    public class Peca
+    abstract class Peca 
     {
+
         public Posicao Posicao { get; set; }
         public Cor Cor { get; protected set; }
-        public int QtdMovimentos { get; set; }
+        public int QteMovimentos { get; protected set; }
         public Tabuleiro Tabuleiro { get; protected set; }
-
-        public Peca(Tabuleiro tabuleiro, Cor cor)
+         
+        public Peca(Tabuleiro tabuleiro, Cor cor) 
         {
             Posicao = null;
             Tabuleiro = tabuleiro;
             Cor = cor;
-            QtdMovimentos = 0;
+            QteMovimentos = 0;
         }
 
-        public void IncrementarQtdMovimentos()
+        public void IncrementarQteMovimentos() 
         {
-            QtdMovimentos++;
+            QteMovimentos++;
         }
+
+        public abstract bool[,] MovimentosPossiveis();
     }
 }

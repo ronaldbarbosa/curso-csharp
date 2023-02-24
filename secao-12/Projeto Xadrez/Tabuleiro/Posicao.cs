@@ -1,17 +1,24 @@
-namespace Projeto_Xadrez
+﻿namespace tabuleiro 
 {
-    public class Posicao
+    class Posicao 
     {
+
         public int Linha { get; set; }
         public int Coluna { get; set; }
 
-        public Posicao(int linha, int coluna)
+        public Posicao(int linha, int coluna) 
         {
             Linha = linha;
             Coluna = coluna;
         }
 
-        public override string ToString()
+        public void DefinirValores(int linha, int coluna) 
+        {
+            Linha = linha;
+            Coluna = coluna;
+        }
+
+        public override string ToString() 
         {
             return $"{Linha}, {Coluna}";
         }

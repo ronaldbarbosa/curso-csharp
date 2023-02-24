@@ -1,67 +1,68 @@
-namespace Projeto_Xadrez
+﻿namespace tabuleiro 
 {
-    public class Tabuleiro
+    class Tabuleiro 
     {
+
         public int Linhas { get; set; }
         public int Colunas { get; set; }
         private Peca[,] Pecas;
 
-        public Tabuleiro(int linhas, int colunas)
+        public Tabuleiro(int linhas, int colunas) 
         {
             Linhas = linhas;
             Colunas = colunas;
-            Pecas = new Peca[linhas, colunas];
+            Pecas = new Peca[linhas, colunas]; 
         }
 
-        public Peca Peca(Posicao posicao)
+        public Peca Peca(int linha, int coluna) 
+        {
+            return Pecas[linha, coluna];
+        }
+
+        public Peca Peca(Posicao posicao) 
         {
             return Pecas[posicao.Linha, posicao.Coluna];
         }
 
-        public Peca Peca(int linha, int coluna) {
-            return Pecas[linha, coluna];
-        }
-
-        public bool ExistePeca(Posicao posicao)
+        public bool ExistePeca(Posicao posicao) 
         {
             ValidarPosicao(posicao);
             return Peca(posicao) != null;
         }
 
-        public void InserirPeca(Peca peca, Posicao posicao)
+        public void ColocarPeca(Peca peca, Posicao posicao) 
         {
-            if(ExistePeca(posicao))
+            if (ExistePeca(posicao)) 
             {
                 throw new TabuleiroException("Já existe uma peça nessa posição!");
             }
-            Pecas[posicao.Linha, posicao.Coluna] = peca; 
+            Pecas[posicao.Linha, posicao.Coluna] = peca;
             peca.Posicao = posicao;
         }
 
-        public Peca RemoverPeca(Posicao posicao)
+        public Peca RetirarPeca(Posicao posicao) 
         {
-            if (Peca(posicao) == null)
+            if (Peca(posicao) == null) 
             {
                 return null;
             }
-            Peca aux = Peca(posicao);
-            aux.Posicao = null;
+            Peca peca = Peca(posicao);
+            peca.Posicao = null;
             Pecas[posicao.Linha, posicao.Coluna] = null;
-            return aux;
+            return peca;
         }
 
-        public bool PosicaoValida(Posicao posicao)
-        {
-            if (posicao.Linha < 0 || posicao.Linha >= Linhas || posicao.Coluna < 0 || posicao.Coluna >= Colunas)
+        public bool PosicaoValida(Posicao posicao) {
+            if (posicao.Linha < 0 || posicao.Linha >= Linhas || posicao.Coluna < 0 || posicao.Coluna >= Colunas) 
             {
                 return false;
             }
             return true;
         }
 
-        public void ValidarPosicao(Posicao posicao)
+        public void ValidarPosicao(Posicao posicao) 
         {
-            if(!PosicaoValida(posicao))
+            if (!PosicaoValida(posicao)) 
             {
                 throw new TabuleiroException("Posição inválida!");
             }

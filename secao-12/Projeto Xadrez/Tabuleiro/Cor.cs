@@ -1,12 +1,12 @@
-namespace Projeto_Xadrez
-{
-    public enum Cor
-    {
+﻿namespace tabuleiro {
+    enum Cor {
+
         Branca,
         Preta,
         Amarela,
         Azul,
         Vermelha,
-        Verde
+        Verde,
+        Laranja
     }
 }
