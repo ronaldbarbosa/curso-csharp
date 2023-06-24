@@ -1,4 +1,5 @@
-﻿using tabuleiro;
+﻿using System.Globalization;
+using tabuleiro;
 
 namespace xadrez
 {
@@ -125,11 +126,25 @@ namespace xadrez
         public void RealizaJogada(Posicao origem, Posicao destino)
         {
             Peca pecaCapturada = ExecutaMovimento(origem, destino);
+            Peca peca = Tab.Peca(destino);
             
             if (EstaEmXeque(JogadorAtual))
             {
                 DesfazMovimento(origem, destino, pecaCapturada);
                 throw new TabuleiroException("Você não pode se colocar em xeque!");
+            }
+
+            // Jogada especial: promocao
+            if (peca is Peao)
+            {
+                if ((peca.Cor == Cor.Branca && destino.Linha == 0) || peca.Cor == Cor.Preta && destino.Linha == 7)
+                {
+                    peca = Tab.RetirarPeca(destino);
+                    Pecas.Remove(peca);
+                    Peca dama = new Dama(Tab, peca.Cor);
+                    Tab.ColocarPeca(dama, destino);
+                    Pecas.Add(dama);
+                }
             }
 
             if (EstaEmXeque(Adversaria(JogadorAtual))) Xeque = true;
@@ -141,7 +156,6 @@ namespace xadrez
                 MudaJogador();
             }
 
-            Peca peca = Tab.Peca(destino);
             // Jogada especial: en passant
             if (peca is Peao && (destino.Linha == origem.Linha - 2 || destino.Linha == origem.Linha + 2))
             {
@@ -159,7 +173,7 @@ namespace xadrez
 
         public void ValidarPosicaoDeDestino(Posicao origem, Posicao destino)
         {
-            if (!Tab.Peca(origem).MovimentoPossivel(destino)) throw new TabuleiroException("Posição de destinoi inválida!");
+            if (!Tab.Peca(origem).MovimentoPossivel(destino)) throw new TabuleiroException("Posição de destino inválida!");
         }
 
         private void MudaJogador()
