@@ -69,7 +69,7 @@ namespace xadrez
             }
 
             // NO
-            posicao.DefinirValores(posicao.Linha - 1, posicao.Coluna - 1);
+            posicao.DefinirValores(Posicao.Linha - 1, Posicao.Coluna - 1);
             while (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
             {
                 posicoesPossiveis[posicao.Linha, posicao.Coluna] = true;
@@ -78,7 +78,7 @@ namespace xadrez
             }
 
             // NE
-            posicao.DefinirValores(posicao.Linha - 1, posicao.Coluna + 1);
+            posicao.DefinirValores(Posicao.Linha - 1, Posicao.Coluna + 1);
             while (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
             {
                 posicoesPossiveis[posicao.Linha, posicao.Coluna] = true;
@@ -87,7 +87,7 @@ namespace xadrez
             }
 
             // SE
-            posicao.DefinirValores(posicao.Linha + 1, posicao.Coluna + 1);
+            posicao.DefinirValores(Posicao.Linha + 1, Posicao.Coluna + 1);
             while (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
             {
                 posicoesPossiveis[posicao.Linha, posicao.Coluna] = true;
@@ -96,7 +96,7 @@ namespace xadrez
             }
             
             // SO
-            posicao.DefinirValores(posicao.Linha + 1, posicao.Coluna - 1);
+            posicao.DefinirValores(Posicao.Linha + 1, Posicao.Coluna - 1);
             while (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
             {
                 posicoesPossiveis[posicao.Linha, posicao.Coluna] = true;

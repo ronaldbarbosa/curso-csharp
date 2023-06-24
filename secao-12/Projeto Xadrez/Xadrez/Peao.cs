@@ -32,28 +32,24 @@ namespace xadrez
                 if (Tabuleiro.PosicaoValida(posicao) && Livre(posicao)) 
                 {
                     posicoesPossiveis[posicao.Linha, posicao.Coluna] = true;
-                    Console.WriteLine("1");
                 }
 
                 posicao.DefinirValores(Posicao.Linha - 2, Posicao.Coluna);
                 if (Tabuleiro.PosicaoValida(posicao) && Livre(posicao) && QteMovimentos == 0) 
                 {
                     posicoesPossiveis[posicao.Linha, posicao.Coluna] = true;
-                    Console.WriteLine("2");
                 }
 
                 posicao.DefinirValores(Posicao.Linha - 1, Posicao.Coluna - 1);
                 if (Tabuleiro.PosicaoValida(posicao) && ExisteInimigo(posicao)) 
                 {
                     posicoesPossiveis[posicao.Linha, posicao.Coluna] = true;
-                    Console.WriteLine("3");
                 }
 
                 posicao.DefinirValores(Posicao.Linha - 1, Posicao.Coluna + 1);
                 if (Tabuleiro.PosicaoValida(posicao) && ExisteInimigo(posicao)) 
                 {
                     posicoesPossiveis[posicao.Linha, posicao.Coluna] = true;
-                    Console.WriteLine("4");
                 }
             }
             else
