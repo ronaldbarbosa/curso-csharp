@@ -8,6 +8,7 @@ namespace SalesWebMvc.Data
         public SalesWebMvcContext (DbContextOptions<SalesWebMvcContext> options)
             : base(options)
         {
+            Database.EnsureCreated();
         }
 
         public DbSet<Departament> Departament { get; set; }

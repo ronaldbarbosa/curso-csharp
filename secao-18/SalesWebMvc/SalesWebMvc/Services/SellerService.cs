@@ -3,11 +3,11 @@ using SalesWebMvc.Models;
 
 namespace SalesWebMvc.Services
 {
-    public class SelllerService
+    public class SellerService
     {
         private readonly SalesWebMvcContext _context;
 
-        public SelllerService(SalesWebMvcContext context)
+        public SellerService(SalesWebMvcContext context)
         {
             _context = context;
         }
@@ -15,6 +15,12 @@ namespace SalesWebMvc.Services
         public List<Seller> FindAll() 
         {
             return _context.Seller.ToList();
+        }
+
+        public void Insert(Seller seller)
+        {
+            _context.Seller.Add(seller);
+            _context.SaveChanges();
         }
     }
 }

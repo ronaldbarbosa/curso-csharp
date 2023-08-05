@@ -1,7 +1,10 @@
-﻿namespace SalesWebMvc.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SalesWebMvc.Models
 {
     public class Departament
     {
+        [Key]
         public int Id { get; set; }
         public string Name { get; set; }
         public ICollection<Seller> Sellers { get; set; } = new List<Seller>();
@@ -10,9 +13,8 @@
         {
         }
 
-        public Departament(int id, string name)
+        public Departament(string name)
         {
-            Id = id;
             Name = name;
         }
 
